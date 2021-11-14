@@ -26,8 +26,10 @@ Docker Compose service example:
 
 `k2rt` will read all messages from `TOPIC` as JSON and save it to Redis Timeseries as:
 
-Key    = `{Event Key}:{Data JSON Key}:`
+```markdown
+Key    = `{Event Key}:{Data JSON Key}`
 Value  = Data from JSON(only int, float and bool values are saved)
 Labels =
-  Label Key   = `Data JSON Key`
-  Label Value = Data from JSON(string values)
+    Label Key   = `Data JSON Key`
+    Label Value = Data from JSON(string values)
+```
