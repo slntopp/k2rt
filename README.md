@@ -19,6 +19,9 @@ Docker Compose service example:
       TOPIC: shadow.reported-state.delta
 ```
 
+> Note
+> Add --debug flag to reduce log level to `DEBUG`
+
 ## What's going to happen
 
 `k2rt` will read all messages from `TOPIC` as JSON and save it to Redis Timeseries as:
