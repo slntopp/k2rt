@@ -77,7 +77,7 @@ func main() {
 			continue
 		}
 
-		stamp := msg.Time.Unix()
+		stamp := msg.Time.UnixMilli()
 		ts.AddRecord(device, stamp, data)
 	}
 }
