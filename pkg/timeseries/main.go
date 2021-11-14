@@ -54,7 +54,7 @@ func (c *TSClient) AddRecord(prefix string, stamp int64, data map[string]interfa
 			log.Error("Failed to write key to timeseries",
 				zap.String("key", prefix + ":" + key),
 				zap.Int64("ts", stamp), zap.Float64("value", value),
-				zap.Any("labels", opts.Labels),
+				zap.Any("labels", opts.Labels), zap.Error(err),
 			)
 		}
 	}
