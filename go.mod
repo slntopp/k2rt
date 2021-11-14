@@ -3,6 +3,7 @@ module github.com/slntopp/k2rt
 go 1.17
 
 require (
+	github.com/RedisTimeSeries/redistimeseries-go v1.4.4
 	github.com/segmentio/kafka-go v0.4.23
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.9.0
@@ -12,6 +13,7 @@ require (
 require (
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/golang/snappy v0.0.3 // indirect
+	github.com/gomodule/redigo v1.8.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/klauspost/compress v1.9.8 // indirect
 	github.com/magiconair/properties v1.8.5 // indirect

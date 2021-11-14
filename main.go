@@ -17,7 +17,7 @@ import (
 var (
 	log *zap.Logger
 
-	kafkaHost, kafkaTopic string
+	kafkaHost, kafkaTopic, redisHost string
 )
 
 func init() {
@@ -27,7 +27,8 @@ func init() {
 	pflag.Parse()
 	viper.BindPFlags(pflag.CommandLine)
 
-	viper.SetDefault("KAFKA_HOST", "kafka:9092")
+	viper.SetDefault("KAFKA_HOST", "localhost:9092")
+	viper.SetDefault("REDIS_HOST", "localhost:6379")
 	viper.SetDefault("TOPIC", "shadow.reported-state.delta")
 
 	viper.AutomaticEnv()
@@ -48,6 +49,8 @@ func init() {
 
 	kafkaHost  = viper.GetString("KAFKA_HOST")
 	kafkaTopic = viper.GetString("TOPIC")
+
+	redisHost  = viper.GetString("REDIS_HOST")
 }
 
 func main() {
@@ -60,7 +63,7 @@ func main() {
 	ch := make(chan kafka.Message)
 	go reader.Start(r, log, ch)
 
-	ts := timeseries.NewTSClient(log)
+	ts := timeseries.NewTSClient(log, redisHost)
 
 	for msg := range ch {
 		var err error
