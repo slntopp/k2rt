@@ -8,6 +8,17 @@ Dump kafka messages to Redis-Timeseries by pattern
 2. Set environment variables: `KAFKA_HOST`, `REDIS_HOST`, `TOPIC`
 3. Start
 
+Docker Compose service example:
+
+```yml
+  k2rt:
+    image: ghcr.io/slntopp/k2rt
+    environment:
+      KAFKA_HOST: kafka:29092
+      REDIS_HOST: timeseries:6379
+      TOPIC: shadow.reported-state.delta
+```
+
 ## What's going to happen
 
 `k2rt` will read all messages from `TOPIC` as JSON and save it to Redis Timeseries as:
