@@ -20,6 +20,7 @@ Docker Compose service example:
 ```
 
 > Note
+>
 > Add --debug flag to reduce log level to `DEBUG`
 
 ## What's going to happen
